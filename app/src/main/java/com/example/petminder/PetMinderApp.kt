@@ -1,27 +1,33 @@
 package com.example.petminder
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
-import androidx.compose.material3.*
+import androidx.compose.material.icons.filled.CalendarMonth
+import androidx.compose.material.icons.filled.Pets
+import androidx.compose.material.icons.filled.SupervisorAccount
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 
-enum class BottomDest(val route: String, val label: String, val icon: ImageVector) {
-    Home("home", "Home", Icons.Filled.Home),
-    Calendar("calendar", "Calendar", Icons.Filled.CalendarMonth),
-    Pets("pets", "Pets", Icons.Filled.Pets),
-    Family("family", "Family", Icons.Filled.SupervisorAccount)
-}
+data class BottomItem(val label: String, val icon: ImageVector)
+
+private val bottomItems = listOf(
+    BottomItem("Tasks", Icons.Filled.CalendarMonth),
+    BottomItem("Pets", Icons.Filled.Pets),
+    BottomItem("Profile", Icons.Filled.SupervisorAccount)
+)
 
 @Composable
-fun PetMinderBottomBar(currentRoute: String?, onNavigate: (String) -> Unit) {
+fun PetMinderApp() {
     NavigationBar {
-        BottomDest.values().forEach { d ->
+        bottomItems.forEach { item ->
             NavigationBarItem(
-                selected = currentRoute == d.route,
-                onClick = { onNavigate(d.route) },
-                icon = { Icon(d.icon, contentDescription = d.label) },
-                label = { Text(d.label) }
+                selected = false,
+                onClick = { },
+                icon = { Icon(item.icon, contentDescription = item.label) },
+                label = { Text(item.label) }
             )
         }
     }

@@ -1,22 +1,25 @@
 [versions]
-# Kotlin version explicitly pinned for Compose 1.5.4 compatibility
-kotlin = "1.9.20"
-agp = "8.5.0"
-compose = "1.6.8"
+composeCompiler = "1.6.10"
+coreKtx = "1.12.0"
+appcompat = "1.6.1"
+activityCompose = "1.9.0"
+composeMaterial3 = "1.2.1"
+composeBom = "2024.06.00"
+lifecycleRuntimeKtx = "2.7.0"
+navigationCompose = "2.8.0"
+composeUi = "1.6.8"
+composeTooling = "1.6.8"
 
 [libraries]
-androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.13.1" }
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.7.0" }
-androidx-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose" }
-androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
-androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
-androidx-compose-ui-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
-androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version = "2.8.5" }
-androidx-activity-compose = { module = "androidx.activity:activity-compose", version = "1.9.2" }
-androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version = "2.8.2" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "composeMaterial3" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "composeUi" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "composeTooling" }
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "composeTooling" }
 
-[plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
-kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
-
+[bundles]
