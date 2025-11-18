@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PetMinder</string>
+    <string name="app_logo">PetMinder Logo</string>
 </resources>

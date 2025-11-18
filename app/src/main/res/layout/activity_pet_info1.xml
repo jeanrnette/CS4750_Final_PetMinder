@@ -1,35 +1,194 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="24dp"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="24dp"
+    tools:context=".ui.onboarding.PetInfoActivity1">
 
-    <TextView
-        android:text="Welcome!"
-        android:textStyle="bold"
-        android:textSize="24sp"/>
-
-    <TextView
-        android:text="Add Pet Information"
-        android:textSize="14sp"
-        android:layout_marginBottom="8dp"/>
-
-    <EditText android:hint="Pet Name" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-    <EditText android:hint="Species" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-    <EditText android:hint="Sex" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-    <EditText android:hint="Age" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-
-    <Button
-        android:id="@+id/btnNext"
-        android:text="Next"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtSkip"
-        android:text="Do Later"
-        android:textSize="12sp"
-        android:gravity="center"
-        android:layout_marginTop="8dp"/>
-</LinearLayout>
+        <!-- Top logo and app name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/ic_pet_logo"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/app_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pet Minder"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <!-- Welcome Header -->
+        <TextView
+            android:id="@+id/txtWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome Kenia!"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Pet Information"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Pet Name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pet Name"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/inputPetName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Pet Name"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#9E9E9E"
+            android:layout_marginTop="6dp" />
+
+        <!-- Species -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Species"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/inputSpecies"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Species"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#9E9E9E"
+            android:layout_marginTop="6dp" />
+
+        <!-- Sex -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sex"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/inputSex"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Sex"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#9E9E9E"
+            android:layout_marginTop="6dp" />
+
+        <!-- Age -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/inputAge"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Age"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#9E9E9E"
+            android:layout_marginTop="6dp" />
+
+        <!-- Next Button -->
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/button_black"
+            android:layout_marginTop="32dp" />
+
+        <!-- Do Later -->
+        <TextView
+            android:id="@+id/txtSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do Later"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"/>
+            
+
+        <!-- Progress Dots -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="24dp">
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/progress_dot_active"
+                android:layout_margin="4dp" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/progress_dot_inactive"
+                android:layout_margin="4dp" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/progress_dot_inactive"
+                android:layout_margin="4dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

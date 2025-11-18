@@ -1,23 +1,193 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="24dp"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="24dp"
+    tools:context=".ui.onboarding.PetInfoActivity2">
 
-    <TextView
-        android:text="More Pet Details"
-        android:textStyle="bold"
-        android:textSize="22sp"/>
-
-    <EditText android:hint="Birthday (MM/DD/YYYY)" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-    <EditText android:hint="Weight" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-    <EditText android:hint="Height" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-    <EditText android:hint="Vaccines" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-
-    <Button
-        android:id="@+id/btnNext2"
-        android:text="Next"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"/>
-</LinearLayout>
+        android:orientation="vertical">
+
+        <!-- Top logo and app name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/ic_pet_logo"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/app_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pet Minder"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <!-- Welcome Header -->
+        <TextView
+            android:id="@+id/txtWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome Kenia!"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Pet Information"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Birthday -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Birthday"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/inputBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Month/Day/Year"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#9E9E9E"
+            android:layout_marginTop="6dp" />
+
+        <!-- Weight -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/inputWeight"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Weight"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#9E9E9E"
+            android:layout_marginTop="6dp" />
+
+        <!-- Height -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/inputHeight"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Height"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#9E9E9E"
+            android:layout_marginTop="6dp" />
+
+        <!-- Vaccines -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vaccines"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/inputVaccines"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Vaccines"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#9E9E9E"
+            android:layout_marginTop="6dp" />
+
+        <!-- Next Button -->
+        <Button
+            android:id="@+id/btnNext2"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/button_black"
+            android:layout_marginTop="32dp" />
+
+        <!-- Do Later -->
+        <TextView
+            android:id="@+id/txtSkip2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do Later"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Progress Dots -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="24dp">
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/progress_dot_inactive"
+                android:layout_margin="4dp" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/progress_dot_active"
+                android:layout_margin="4dp" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/progress_dot_inactive"
+                android:layout_margin="4dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
