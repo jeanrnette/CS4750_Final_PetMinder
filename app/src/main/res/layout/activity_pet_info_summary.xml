@@ -1,0 +1,43 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Welcome!"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnUpload"
+            android:text="Upload Image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Pet Summary:"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView android:text="Birthday: August 17, 2009"/>
+        <TextView android:text="Species: Dog"/>
+        <TextView android:text="Vaccinated: Yes"/>
+        <TextView android:text="Weight: 31 lbs"/>
+
+        <Button
+            android:id="@+id/btnFinish"
+            android:text="Finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+</ScrollView>

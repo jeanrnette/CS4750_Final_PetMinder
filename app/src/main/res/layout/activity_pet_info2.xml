@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="More Pet Details"
+        android:textStyle="bold"
+        android:textSize="22sp"/>
+
+    <EditText android:hint="Birthday (MM/DD/YYYY)" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <EditText android:hint="Weight" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <EditText android:hint="Height" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <EditText android:hint="Vaccines" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnNext2"
+        android:text="Next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

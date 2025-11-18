@@ -11,17 +11,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetMinder">
+
+        <!-- 🐾 Splash screen: Launches first -->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.onboarding.SplashActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.PetMinder">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 🔐 Login screen -->
+        <activity
+            android:name=".ui.onboarding.LoginActivity"
+            android:exported="false" />
+
+        <!-- 🧾 Create Account screen -->
+        <activity
+            android:name=".ui.onboarding.CreateAccountActivity"
+            android:exported="false" />
+
+        <!-- 🐶 Pet Info screens -->
+        <activity
+            android:name=".ui.onboarding.PetInfoActivity1"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.onboarding.PetInfoActivity2"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.onboarding.PetInfoSummaryActivity"
+            android:exported="false" />
+
+        <!-- 🏠 Optional MainActivity (for after onboarding) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
