@@ -1,4 +1,5 @@
 package com.example.petminder.ui.onboarding
+import androidx.compose.foundation.layout.Arrangement
 
 import android.Manifest
 import android.app.Activity
@@ -226,11 +227,11 @@ fun PetInfoSummaryScreen(onFinish: () -> Unit = {}) {
 
 @Composable
 fun FlowTags(tags: List<String>) {
-    FlowRow(
-        mainAxisSpacing = 8.dp,
-        crossAxisSpacing = 8.dp,
-        modifier = Modifier.padding(top = 8.dp)
-    ) {
+FlowRow(
+    horizontalArrangement = Arrangement.spacedBy(8.dp),
+    verticalArrangement = Arrangement.spacedBy(8.dp)
+)
+ {
         tags.forEach { tag ->
             Row(
                 verticalAlignment = Alignment.CenterVertically,

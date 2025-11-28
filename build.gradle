@@ -1,13 +1,13 @@
-// Root build.gradle — fixed for Gradle 8+
 buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
     dependencies {
-        classpath("com.android.tools.build:gradle:8.6.1")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.25")
+        classpath 'com.android.tools.build:gradle:8.5.0'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24'
     }
 }
-// ? No 'allprojects' or 'repositories' blocks outside buildscript
+
+plugins {
+    id 'com.android.application' version '8.5.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.20' apply false
+}
+
+
