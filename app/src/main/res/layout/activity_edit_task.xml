@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- ================= TOP BLUE BAR ================= -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="#3F51B5"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EDIT TASK"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+
+    <!-- ================= ACTION ROW (Delete | Cancel | Save) ================= -->
+    <LinearLayout
+        android:id="@+id/actionRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- DELETE -->
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="DELETE"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:backgroundTint="#E6E6E6"/>
+
+        <!-- CANCEL EDIT -->
+        <TextView
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel Edit"
+            android:textSize="16sp"
+            android:textColor="#3F51B5"
+            android:gravity="center"/>
+
+        <!-- SAVE -->
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="SAVE"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:backgroundTint="#E6E6E6"/>
+    </LinearLayout>
+
+
+    <!-- ================= FORM AREA ================= -->
+    <ScrollView
+        android:id="@+id/formScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/actionRow"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- NAME -->
+            <TextView
+                android:text="Name"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#444444"/>
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Enter Text..."
+                android:padding="10dp"
+                android:background="@drawable/input_field_bg"/>
+
+
+            <!-- DESCRIPTION -->
+            <TextView
+                android:text="Description"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#444444"/>
+
+            <EditText
+                android:id="@+id/editDescription"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Enter Text..."
+                android:padding="10dp"
+                android:background="@drawable/input_field_bg"/>
+
+
+            <!-- DATE & TIME -->
+            <TextView
+                android:text="Date & Time"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#444444"/>
+
+            <EditText
+                android:id="@+id/editDate"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Month, ##:##AM"
+                android:padding="10dp"
+                android:background="@drawable/input_field_bg"/>
+
+
+            <!-- COMPLETED BY -->
+            <TextView
+                android:text="Completed By:"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#444444"/>
+
+            <Spinner
+                android:id="@+id/spinnerCompletedBy"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:padding="10dp"
+                android:background="@drawable/input_field_bg"/>
+
+
+            <!-- NOTE -->
+            <TextView
+                android:text="Note:"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#444444"/>
+
+            <EditText
+                android:id="@+id/editNote"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:padding="10dp"
+                android:hint="Some optional note here ..."
+                android:background="@drawable/input_field_bg"/>
+
+
+            <!-- SKIP BUTTON -->
+            <Button
+                android:id="@+id/btnSkip"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginTop="35dp"
+                android:backgroundTint="#E6E6E6"
+                android:text="SKIP FOR TODAY"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:paddingHorizontal="20dp"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!-- ================= BOTTOM NAVIGATION ================= -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="95dp"
+        android:background="#3F51B5"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- HOME -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView android:src="@drawable/ic_home" android:tint="#FF8A65"
+                android:layout_width="32dp" android:layout_height="32dp"/>
+            <TextView android:text="Home" android:textColor="#FF8A65"/>
+        </LinearLayout>
+
+        <!-- CALENDAR -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView android:src="@drawable/ic_calendar"
+                android:tint="@android:color/white"
+                android:layout_width="32dp"
+                android:layout_height="32dp"/>
+            <TextView android:text="Calendar" android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- PETS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView android:src="@drawable/ic_pets"
+                android:tint="@android:color/white"
+                android:layout_width="32dp"
+                android:layout_height="32dp"/>
+            <TextView android:text="Pets" android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- SETTINGS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView android:src="@drawable/ic_settings"
+                android:tint="@android:color/white"
+                android:layout_width="32dp"
+                android:layout_height="32dp"/>
+            <TextView android:text="Settings" android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

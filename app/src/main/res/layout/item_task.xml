@@ -2,26 +2,58 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="12dp"
-    android:background="#F5F5F5"
-    android:layout_marginBottom="8dp">
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingBottom="22dp">
 
+    <!-- TIME -->
     <TextView
-        android:id="@+id/txtTaskTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Task Title"
-        android:textSize="18sp"
+        android:id="@+id/taskTime"
+        android:text="08:00 AM"
         android:textStyle="bold"
-        android:textColor="#000000" />
-
-    <TextView
-        android:id="@+id/txtTaskDetails"
-        android:layout_width="match_parent"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Task details go here"
-        android:textColor="#555555"
-        android:textSize="14sp"
-        android:layout_marginTop="4dp" />
+        android:layout_marginRight="20dp"/>
+
+    <!-- CARD -->
+    <LinearLayout
+        android:id="@+id/cardBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#E6E6E6"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:elevation="3dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:id="@+id/taskTitle"
+            android:text="Title"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/taskDescription"
+            android:text="Details about task here …"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/taskOwner"
+            android:text="Owner 1"
+            android:textSize="12sp"
+            android:background="#CCCCCC"
+            android:padding="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="end"/>
+    </LinearLayout>
+
+    <!-- MORE BUTTON -->
+    <ImageView
+        android:id="@+id/menuIcon"
+        android:src="@android:drawable/ic_menu_more"
+        android:layout_width="28dp"
+        android:layout_height="28dp"/>
 </LinearLayout>
