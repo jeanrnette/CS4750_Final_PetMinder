@@ -1,40 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@android:color/white"
-    android:padding="24dp">
+    android:background="#FFFFFF">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Task Screen"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#000000" />
+    <!-- ========================================================= -->
+    <!--                   TOP BLUE HEADER (CREATE TASK)            -->
+    <!-- ========================================================= -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="#3F51B5"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <EditText
-        android:id="@+id/edtTaskTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Task Title" />
+        <TextView
+            android:text="CREATE TASK"
+            android:textSize="22sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/edtTaskDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Details" />
 
-    <Button
-        android:id="@+id/btnSaveTask"
-        android:layout_width="match_parent"
+    <!-- ========================================================= -->
+    <!--                    CANCEL / SAVE ROW                      -->
+    <!-- ========================================================= -->
+    <LinearLayout
+        android:id="@+id/actionRow"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Save Task"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="#000000"
-        android:textColor="#FFFFFF" />
-</LinearLayout>
+        android:paddingHorizontal="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="4dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- CANCEL -->
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="100dp"
+            android:layout_height="44dp"
+            android:text="Cancel"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#E6E6E6"/>
+
+        <!-- EMPTY SPACER -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <!-- SAVE -->
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="100dp"
+            android:layout_height="44dp"
+            android:text="Save"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:backgroundTint="#E6E6E6"/>
+    </LinearLayout>
+
+
+    <!-- ========================================================= -->
+    <!--                       MAIN SCROLL AREA                     -->
+    <!-- ========================================================= -->
+    <ScrollView
+        android:id="@+id/scrollArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/actionRow"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- NAME -->
+            <TextView
+                android:text="Name"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#444444"/>
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingHorizontal="12dp"
+                android:hint="Enter Text..."
+                android:background="@drawable/input_field_bg"/>
+
+
+            <!-- DESCRIPTION -->
+            <TextView
+                android:text="Description"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp"
+                android:textColor="#444444"/>
+
+            <EditText
+                android:id="@+id/editDescription"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingHorizontal="12dp"
+                android:hint="Enter Text..."
+                android:background="@drawable/input_field_bg"/>
+
+
+            <!-- DATE & TIME -->
+            <TextView
+                android:text="Date & Time"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp"
+                android:textColor="#444444"/>
+
+            <EditText
+                android:id="@+id/editDate"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingHorizontal="12dp"
+                android:hint="Month, ##:##AM"
+                android:background="@drawable/input_field_bg"/>
+
+
+            <!-- REPEAT SWITCH -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="24dp">
+
+                <TextView
+                    android:text="Repeat this task?"
+                    android:textStyle="bold"
+                    android:textColor="#444444"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <Switch
+                    android:id="@+id/switchRepeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+
+            <!-- REPEATS TITLE -->
+            <TextView
+                android:text="Repeats:"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="12dp"
+                android:textColor="#444444"/>
+
+
+            <!-- RADIO BUTTON OPTIONS -->
+            <RadioGroup
+                android:id="@+id/repeatOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_field_bg"
+                android:padding="12dp">
+
+                <RadioButton
+                    android:id="@+id/radioDaily"
+                    android:text="Daily"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/radioWeekly"
+                    android:text="Weekly"/>
+
+                <RadioButton
+                    android:id="@+id/radioMonthly"
+                    android:text="Monthly"/>
+
+                <RadioButton
+                    android:id="@+id/radioCustom"
+                    android:text="Custom"/>
+            </RadioGroup>
+
+
+            <!-- COMPLETED BY -->
+            <TextView
+                android:text="Completed By:"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="24dp"
+                android:textColor="#444444"/>
+
+            <Spinner
+                android:id="@+id/spinnerCompletedBy"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/input_field_bg"
+                android:paddingHorizontal="12dp"/>
+
+
+            <!-- IMPORTANCE -->
+            <TextView
+                android:text="Importance"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="24dp"
+                android:textColor="#444444"/>
+
+            <Spinner
+                android:id="@+id/spinnerImportance"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingHorizontal="12dp"
+                android:background="@drawable/input_field_bg"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!-- ========================================================= -->
+    <!--                       BOTTOM NAVIGATION                    -->
+    <!-- ========================================================= -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="95dp"
+        android:background="#3F51B5"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- HOME -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_home"
+                android:tint="#FF8A65"/>
+            <TextView android:text="Home" android:textColor="#FF8A65"/>
+        </LinearLayout>
+
+        <!-- CALENDAR -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_calendar"
+                android:tint="@android:color/white"/>
+            <TextView android:text="Calendar" android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- PETS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_pets"
+                android:tint="@android:color/white"/>
+            <TextView android:text="Pets" android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- SETTINGS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_settings"
+                android:tint="@android:color/white"/>
+            <TextView android:text="Settings" android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
