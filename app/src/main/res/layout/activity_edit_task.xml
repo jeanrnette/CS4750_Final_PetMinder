@@ -113,7 +113,7 @@
                 android:layout_height="50dp"
                 android:paddingHorizontal="15dp"
                 android:background="@drawable/input_field_bg"
-                android:hint="Enter Text..."/>
+                android:hint="Enter Title..."/>
 
 
             <!-- DESCRIPTION -->
@@ -130,7 +130,7 @@
                 android:layout_height="50dp"
                 android:paddingHorizontal="15dp"
                 android:background="@drawable/input_field_bg"
-                android:hint="Enter Text..."/>
+                android:hint="Enter Description..."/>
 
 
             <!-- DATE & TIME -->
@@ -147,7 +147,7 @@
                 android:layout_height="50dp"
                 android:paddingHorizontal="15dp"
                 android:background="@drawable/input_field_bg"
-                android:hint="Month, ##:##AM"/>
+                android:hint="Complete by Month, ##:##AM"/>
 
 
             <!-- COMPLETED BY -->
