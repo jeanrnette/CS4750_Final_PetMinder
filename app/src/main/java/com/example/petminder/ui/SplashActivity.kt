@@ -12,11 +12,14 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        // Splash delay before going to next screen (2 seconds)
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, LoginActivity::class.java)
+
+            // TODO: Change "MainActivity" to your real next screen
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }, 2000)
-         // 2000 ms = 2 seconds
+
+        }, 2000) // 2000 ms = 2 seconds
     }
 }

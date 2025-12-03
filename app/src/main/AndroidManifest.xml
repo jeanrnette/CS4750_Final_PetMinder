@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permissions for gallery image picking -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -14,45 +17,72 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetMinder">
 
-        <!-- 🐾 Splash screen: Launches first -->
+        <!-- ===================================================== -->
+        <!--                     LAUNCHER (Splash)                 -->
+        <!-- ===================================================== -->
         <activity
             android:name=".ui.onboarding.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.PetMinder">
+            android:theme="@style/Theme.PetMinder.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <!-- 🔐 Login screen -->
-        <activity
-            android:name=".ui.onboarding.LoginActivity"
-            android:exported="false" />
+        <!-- ===================================================== -->
+        <!--                     ONBOARDING                        -->
+        <!-- ===================================================== -->
 
-        <!-- 🧾 Create Account screen -->
-        <activity
-            android:name=".ui.onboarding.CreateAccountActivity"
-            android:exported="false" />
+        <activity android:name=".ui.onboarding.LoginActivity" />
+        <activity android:name=".ui.onboarding.CreateAccountActivity" />
+        <activity android:name=".ui.onboarding.PetInfoActivity1" />
+        <activity android:name=".ui.onboarding.PetInfoActivity2" />
+        <activity android:name=".ui.onboarding.PetInfoSummaryActivity" />
 
-        <!-- 🐶 Pet Info screens -->
-        <activity
-            android:name=".ui.onboarding.PetInfoActivity1"
-            android:exported="false" />
+        <!-- ===================================================== -->
+        <!--                       HOME SCREENS                    -->
+        <!-- ===================================================== -->
+        <activity android:name=".ui.home.HomeNoTaskActivity" />
+        <activity android:name=".ui.home.HomeDailyTaskActivity" />
 
-        <activity
-            android:name=".ui.onboarding.PetInfoActivity2"
-            android:exported="false" />
+        <!-- ===================================================== -->
+        <!--                         TASK                          -->
+        <!-- ===================================================== -->
+        <activity android:name=".ui.task.CreateTaskActivity" />
+        <activity android:name=".ui.task.EditTaskActivity" />
 
+        <!-- Task delete confirmation dialog -->
         <activity
-            android:name=".ui.onboarding.PetInfoSummaryActivity"
-            android:exported="false" />
+            android:name=".ui.task.dialog.DeleteTaskDialog"
+            android:exported="false"
+            tools:node="merge" />
 
-        <!-- 🏠 Optional MainActivity (for after onboarding) -->
+        <!-- ===================================================== -->
+        <!--                    CALENDAR SCREENS                   -->
+        <!-- ===================================================== -->
+        <activity android:name=".ui.calendar.CalendarScreenActivity" />
+        <activity android:name=".ui.calendar.CalendarFilterActivity" />
+        <activity android:name=".ui.calendar.CalendarMinimizedActivity" />
+
+        <!-- ===================================================== -->
+        <!--                         PETS                          -->
+        <!-- ===================================================== -->
+        <activity android:name=".ui.pets.PetListActivity" />
+        <activity android:name=".ui.pets.PetDetailsActivity" />
+
+        <!-- ===================================================== -->
+        <!--                       SETTINGS                        -->
+        <!-- ===================================================== -->
+        <activity android:name=".ui.settings.SettingsActivity" />
+        <activity android:name=".ui.pets.AddPetActivity" />
+
+        <!-- ===================================================== -->
+        <!--                     MAIN ACTIVITY                     -->
+        <!-- ===================================================== -->
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true" />
 
     </application>
-
 </manifest>

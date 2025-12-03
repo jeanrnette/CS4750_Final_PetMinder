@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/calendar_screen"
+    android:id="@+id/calendar_minimized_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="#FFFFFF">
 
-    <!-- ============= TOP BLUE BAR ============= -->
+    <!-- ================= TOP BAR ================= -->
     <RelativeLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
@@ -24,17 +24,17 @@
 
         <ImageView
             android:id="@+id/filterIcon"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_filter_list"
-            android:tint="#FFFFFF"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_filter_button"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="16dp" />
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true" />
 
     </RelativeLayout>
 
-    <!-- ============= SCROLL AREA ============= -->
+
+    <!-- ================= SCROLL AREA ================= -->
     <ScrollView
         android:id="@+id/scrollArea"
         android:layout_width="match_parent"
@@ -44,55 +44,21 @@
 
         <LinearLayout
             android:orientation="vertical"
+            android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- ===== MONTH HEADER ===== -->
-            <LinearLayout
-                android:id="@+id/monthHeader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:id="@+id/prevMonth"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_arrow_left"
-                    android:tint="#000000" />
-
-                <TextView
-                    android:id="@+id/monthTitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="NOVEMBER   2025"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/nextMonth"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_arrow_right"
-                    android:tint="#000000" />
-            </LinearLayout>
-
-            <!-- ===== CALENDAR PNG IMAGE ===== -->
+            <!-- ===== MINIMIZED CALENDAR IMAGE (Image B) ===== -->
             <ImageView
-                android:id="@+id/calendarImage"
+                android:id="@+id/calendarMin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/ic_calendar_image"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp" />
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_calendar_min"
+                android:layout_marginBottom="12dp" />
 
-            <!-- ===== SELECTED DATE HEADER ===== -->
+            <!-- ===== SELECTED DATE ===== -->
             <TextView
                 android:id="@+id/selectedDay"
                 android:layout_width="wrap_content"
@@ -101,122 +67,159 @@
                 android:textSize="20sp"
                 android:textColor="#000000"
                 android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="16dp" />
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp" />
 
-            <!-- ===== TASK LIST AREA ===== -->
+            <!-- ========================================================= -->
+            <!-- ======================= TASK LIST ======================= -->
+            <!-- ========================================================= -->
+
+            <!-- TASK 1 -->
             <LinearLayout
-                android:id="@+id/taskList"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
+                android:gravity="top">
 
-                <!-- TASK ITEM 1 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
+                    android:text="08:00 AM"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp"
+                    android:background="#E3E3E3"
+                    android:padding="12dp"
+                    android:clipToOutline="true">
 
                     <TextView
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:text="08:00 AM"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:background="#ECECEC"
-                        android:padding="12dp"
-                        android:layout_marginLeft="10dp"
-                        android:elevation="2dp"
-                        android:backgroundTint="#FFFFFF"
-                        android:clipToOutline="true">
-
-                        <TextView
-                            android:text="Title"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:text="Details about task here ..."
-                            android:textColor="#444444" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <!-- TASK ITEM 2 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
+                        android:text="Title"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
                     <TextView
-                        android:layout_width="60dp"
+                        android:text="Details about task here ..."
+                        android:textColor="#444444"
+                        android:layout_marginTop="4dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="Owner 1"
+                        android:background="#D1D1D1"
+                        android:textSize="12sp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="08:30 PM"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
+                        android:layout_marginBottom="4dp"/>
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:background="#ECECEC"
-                        android:padding="12dp"
-                        android:layout_marginLeft="10dp">
-
-                        <TextView
-                            android:text="Title"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:text="Details about task here ..."
-                            android:textColor="#444444" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_more_vert"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"/>
+                </RelativeLayout>
             </LinearLayout>
 
-            <!-- EXTRA SPACE ABOVE NAV BAR -->
+
+            <!-- TASK 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
+                android:gravity="top">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="08:30 PM"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp"
+                    android:background="#E3E3E3"
+                    android:padding="12dp"
+                    android:clipToOutline="true">
+
+                    <TextView
+                        android:text="Title"
+                        android:textStyle="bold"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:text="Details about task here ..."
+                        android:textColor="#444444"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:text="Owner 1"
+                        android:background="#D1D1D1"
+                        android:textSize="12sp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="8dp"/>
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_more_vert"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <!-- SPACER ABOVE NAV -->
             <View
                 android:layout_width="match_parent"
-                android:layout_height="90dp" />
+                android:layout_height="100dp" />
 
         </LinearLayout>
-
     </ScrollView>
 
-    <!-- ============= FLOATING ACTION BUTTON ============= -->
+
+    <!-- ================= FLOATING PLUS BUTTON ================= -->
     <ImageView
         android:id="@+id/addButton"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/ic_add"
-        android:tint="#FF6F61"
+        android:src="@drawable/ic_orange_button"
+        android:adjustViewBounds="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="100dp"
         android:layout_alignParentBottom="true" />
 
-    <!-- ============= BOTTOM NAVIGATION BAR ============= -->
+
+    <!-- ================= BOTTOM NAVIGATION ================= -->
     <RelativeLayout
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
         android:background="#4059AD"
+        android:layout_alignParentBottom="true"
         android:padding="8dp">
 
         <LinearLayout
@@ -307,7 +310,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
     </RelativeLayout>
 
 </RelativeLayout>

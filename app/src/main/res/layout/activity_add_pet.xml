@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/addPetTitle"
+            android:text="Add New Pet"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"/>
+
+        <!-- Upload Pet Image -->
+        <FrameLayout
+            android:id="@+id/petImageFrame"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_frame_circle">
+
+            <ImageView
+                android:id="@+id/petImagePreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/petImagePicker"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_upload"/>
+        </FrameLayout>
+
+        <!-- Pet Name Input -->
+        <TextView android:text="Pet Name" android:textStyle="bold" android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/inputPetName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Species Input -->
+        <TextView android:text="Species" android:textStyle="bold" android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/inputSpecies"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Sex Input -->
+        <TextView android:text="Sex" android:textStyle="bold" android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/inputSex"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Birthday Input -->
+        <TextView android:text="Birthday" android:textStyle="bold" android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/inputBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:hint="Month Day, Year"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Age -->
+        <TextView android:text="Age" android:textStyle="bold" android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/inputAge"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Weight -->
+        <TextView android:text="Weight" android:textStyle="bold" android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/inputWeight"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Vaccines -->
+        <TextView android:text="Vaccines" android:textStyle="bold" android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/inputVaccines"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btnSavePet"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Save Pet"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:background="@drawable/button_sapphire"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
