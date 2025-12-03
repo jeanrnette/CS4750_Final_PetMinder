@@ -2,24 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="12dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingVertical="12dp">
 
     <TextView
-        android:text="08:00 AM"
-        android:textStyle="bold"
+        android:id="@+id/taskTime"
         android:layout_width="80dp"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="08:00 AM"
+        android:textStyle="bold"/>
 
     <LinearLayout
+        android:id="@+id/taskCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="#E5E5E5"
         android:padding="12dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginEnd="6dp">
 
-        <TextView android:text="Title" android:textStyle="bold"/>
-        <TextView android:text="Details about task here ..." android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/taskTitle"
+            android:text="Task title"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/taskDetails"
+            android:text="Details about task here"
+            android:textSize="12sp"/>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/taskMenu"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_overflow_menu"
+        android:tint="#444444"/>
 </LinearLayout>
