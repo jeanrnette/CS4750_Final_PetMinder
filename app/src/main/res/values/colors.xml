@@ -2,4 +2,8 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="sapphire">#4059AD</color>
+    <color name="blue_grey">#6b9ac4</color>
+    <color name="pearl_aqua">#97d8c4</color>
+    <color name="platinum">#eff2f1</color>
+    <color name="sunflower_gold">#f4b942</color>
 </resources>
