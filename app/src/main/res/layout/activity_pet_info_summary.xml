@@ -199,7 +199,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="sans-serif-medium"
-            android:background="@drawable/button_rounded_dark" />
+            android:background="@drawable/button_sapphire" />
 
         <!-- Pagination Dots -->
         <LinearLayout
