@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- MAIN COLUMN -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="#304D9E"
+            android:gravity="center">
+
+            <TextView
+                android:text="CALENDAR"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="22sp"/>
+        </LinearLayout>
+
+        <!-- SCROLL AREA -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingBottom="120dp"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- MONTH TITLE -->
+                <TextView
+                    android:text="NOVEMBER 2025"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_gravity="center"/>
+
+                <!-- WEEKDAYS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="7"
+                    android:paddingTop="12dp">
+
+                    <TextView android:text="Sun" android:layout_width="0dp" android:layout_weight="1" android:gravity="center"/>
+                    <TextView android:text="Mon" android:layout_width="0dp" android:layout_weight="1" android:gravity="center"/>
+                    <TextView android:text="Tue" android:layout_width="0dp" android:layout_weight="1" android:gravity="center"/>
+                    <TextView android:text="Wed" android:layout_width="0dp" android:layout_weight="1" android:gravity="center"/>
+                    <TextView android:text="Thu" android:layout_width="0dp" android:layout_weight="1" android:gravity="center"/>
+                    <TextView android:text="Fri" android:layout_width="0dp" android:layout_weight="1" android:gravity="center"/>
+                    <TextView android:text="Sat" android:layout_width="0dp" android:layout_weight="1" android:gravity="center"/>
+                </LinearLayout>
+
+                <!-- CALENDAR CARD -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:elevation="8dp"
+                    android:padding="12dp"
+                    android:layout_marginTop="12dp">
+
+                    <!-- WEEK 1 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="7">
+
+                        <include android:id="@+id/d26" layout="@layout/item_calendar_day"
+                            tools:layout="@layout/item_calendar_day_preview"
+                            tools:text="26" tools:background="#FFFFFF" tools:textColor="#D6D6D6"/>
+
+                        <include android:id="@+id/d27" layout="@layout/item_calendar_day"
+                            tools:layout="@layout/item_calendar_day_preview"
+                            tools:text="27" tools:textColor="#D6D6D6"/>
+
+                        <include android:id="@+id/d28" layout="@layout/item_calendar_day"
+                            tools:layout="@layout/item_calendar_day_preview"
+                            tools:text="28" tools:textColor="#D6D6D6"/>
+
+                        <include android:id="@+id/d29" layout="@layout/item_calendar_day"
+                            tools:layout="@layout/item_calendar_day_preview"
+                            tools:text="29" tools:textColor="#D6D6D6"/>
+
+                        <include android:id="@+id/d30" layout="@layout/item_calendar_day"
+                            tools:layout="@layout/item_calendar_day_preview"
+                            tools:text="30" tools:textColor="#D6D6D6"/>
+
+                        <include android:id="@+id/d31" layout="@layout/item_calendar_day"
+                            tools:layout="@layout/item_calendar_day_preview"
+                            tools:text="31" tools:textColor="#D6D6D6"/>
+
+                        <include android:id="@+id/d1" layout="@layout/item_calendar_day"
+                            tools:layout="@layout/item_calendar_day_preview"
+                            tools:text="1" tools:background="@drawable/bg_day_red"/>
+                    </LinearLayout>
+
+                    <!-- WEEK 2 -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:weightSum="7">
+                        <include android:id="@+id/d2" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="2"/>
+                        <include android:id="@+id/d3" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="3"/>
+                        <include android:id="@+id/d4" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="4"/>
+                        <include android:id="@+id/d5" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="5" tools:background="@drawable/bg_day_blue"/>
+                        <include android:id="@+id/d6" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="6"/>
+                        <include android:id="@+id/d7" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="7"/>
+                        <include android:id="@+id/d8" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="8"/>
+                    </LinearLayout>
+
+                    <!-- WEEK 3 -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:weightSum="7">
+                        <include android:id="@+id/d9" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="9"/>
+                        <include android:id="@+id/d10" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="10"/>
+                        <include android:id="@+id/d11" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="11" tools:background="@drawable/bg_day_red"/>
+                        <include android:id="@+id/d12" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="12" tools:background="@drawable/bg_day_blue"/>
+                        <include android:id="@+id/d13" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="13"/>
+                        <include android:id="@+id/d14" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="14"/>
+                        <include android:id="@+id/d15" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="15"/>
+                    </LinearLayout>
+
+                    <!-- WEEK 4 -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:weightSum="7">
+                        <include android:id="@+id/d16" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="16"/>
+                        <include android:id="@+id/d17" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="17"/>
+                        <include android:id="@+id/d18" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="18"/>
+                        <include android:id="@+id/d19" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="19" tools:background="@drawable/bg_day_blue"/>
+                        <include android:id="@+id/d20" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="20" tools:background="@drawable/bg_day_selected"/>
+                        <include android:id="@+id/d21" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="21"/>
+                        <include android:id="@+id/d22" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="22"/>
+                    </LinearLayout>
+
+                    <!-- WEEK 5 -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:weightSum="7">
+                        <include android:id="@+id/d23" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="23"/>
+                        <include android:id="@+id/d24" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="24"/>
+                        <include android:id="@+id/d25" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="25"/>
+                        <include android:id="@+id/d26b" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="26" tools:background="@drawable/bg_day_blue"/>
+                        <include android:id="@+id/d27b" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="27"/>
+                        <include android:id="@+id/d28b" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="28"/>
+                        <include android:id="@+id/d29b" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="29"/>
+                    </LinearLayout>
+
+                    <!-- WEEK 6 -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:weightSum="7">
+                        <include android:id="@+id/d30Main" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="30"/>
+                        <include android:id="@+id/d1n" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="1" tools:textColor="#D6D6D6"/>
+                        <include android:id="@+id/d2n" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="2" tools:textColor="#D6D6D6"/>
+                        <include android:id="@+id/d3n" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="3" tools:background="@drawable/bg_day_blue"/>
+                        <include android:id="@+id/d4n" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="4" tools:textColor="#D6D6D6"/>
+                        <include android:id="@+id/d5n" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="5" tools:textColor="#D6D6D6"/>
+                        <include android:id="@+id/d6n" layout="@layout/item_calendar_day" tools:layout="@layout/item_calendar_day_preview" tools:text="6" tools:textColor="#D6D6D6"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!-- SELECTED DATE BELOW CALENDAR -->
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:text="Thur. Nov. 20"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
+
+                <!-- TASK CARDS -->
+                <include layout="@layout/item_task_small"/>
+                <include layout="@layout/item_task_small"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- FAB -->
+    <FrameLayout
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom|end"
+        android:background="@drawable/fab_circle_orange"
+        android:layout_margin="20dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_add_white"/>
+    </FrameLayout>
+
+    <!-- BOTTOM NAV -->
+    <include
+        layout="@layout/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"/>
+
+</FrameLayout>
