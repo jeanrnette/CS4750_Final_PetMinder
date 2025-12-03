@@ -1,4 +1,28 @@
 <resources>
     <string name="app_name">PetMinder</string>
     <string name="app_logo">PetMinder Logo</string>
+
+    <!-- Nav Bar Strings -->
+    <string name="nav_home">Home</string>
+    <string name="nav_calendar">Calendar</string>
+    <string name="nav_pets">Pets</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Page Headers -->
+    <string name="head_profile">Profile</string>
+
+    <!-- Profile Text -->
+    <string name="frame_upload_image">Upload image</string>
+    <string name="text_birthday">Birthday:</string>
+    <string name="text_pets">Pets:</string>
+    <string name="text_notifs">Notifications</string>
+    <string name="notif_daily_tasks">Daily Tasks</string>
+    <string name="notif_health_updates">Health Updates</string>
+    <string name="text_notes">Notes:</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+
+
+    <!-- User Input Prompts-->
+    <string name="prompt_email_phone">Email/Phone:</string>
+
 </resources>
