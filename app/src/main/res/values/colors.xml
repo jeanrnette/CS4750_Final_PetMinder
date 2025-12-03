@@ -1,9 +1,18 @@
 <resources>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+
+    <!-- Color palette 1 -->
     <color name="sapphire">#4059AD</color>
     <color name="blue_grey">#6b9ac4</color>
     <color name="pearl_aqua">#97d8c4</color>
     <color name="platinum">#eff2f1</color>
     <color name="sunflower_gold">#f4b942</color>
+
+    <!-- Color palette 2 -->
+    <color name="ash_grey">#9bc1bc</color>
+    <color name="vibrant_coral">#ed6a5a</color>
+    <color name="lemon_chiffon">#f4f1bb</color>
+    <color name="strong_cyan">#36c9c6</color>
+    <color name="soft_linen">#e6ebe0</color>
 </resources>
