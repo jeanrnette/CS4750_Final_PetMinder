@@ -13,7 +13,7 @@
         android:id="@+id/topBar"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:background="#3F51B5"
+        android:background="@color/sapphire"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Cancel Edit"
-            android:textColor="#3F51B5"
+            android:textColor="@color/sapphire"
             android:textSize="16sp"
             android:gravity="center"/>
 
@@ -207,7 +207,7 @@
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
         android:layout_height="95dp"
-        android:background="#3F51B5"
+        android:background="@color/sapphire"
         android:weightSum="4"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
