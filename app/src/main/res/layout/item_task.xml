@@ -3,57 +3,77 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:gravity="center_vertical"
-    android:paddingBottom="22dp">
+    android:layout_gravity="clip_vertical">
 
     <!-- TIME -->
     <TextView
         android:id="@+id/taskTime"
         android:text="08:00 AM"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"/>
 
-    <!-- CARD -->
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <!-- CARD: Task -->
     <LinearLayout
         android:id="@+id/cardBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="#E6E6E6"
-        android:padding="16dp"
+
+        android:gravity="end"
+        android:background="@drawable/bg_round_8"
+        android:backgroundTint="@color/light_grey"
+        android:padding="8dp"
         android:orientation="vertical"
-        android:elevation="3dp"
-        android:layout_marginRight="10dp">
+        android:elevation="3dp">
 
-        <TextView
-            android:id="@+id/taskTitle"
-            android:text="Title"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
+        <!-- Title text + Menu button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <!-- Title of Task -->
+            <TextView
+                android:id="@+id/taskTitle"
+                android:text="Title"
+
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <!-- Button: MORE -->
+            <ImageView
+                android:id="@+id/menuIcon"
+                android:src="@drawable/ic_menu_more"
+                android:layout_width="28dp"
+                android:layout_height="28dp"/>
+        </LinearLayout>
+
+        <!-- Task Description -->
         <TextView
             android:id="@+id/taskDescription"
             android:text="Details about task here …"
+
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+
             android:textSize="14sp"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:id="@+id/taskOwner"
-            android:text="Owner 1"
-            android:textSize="12sp"
-            android:background="#CCCCCC"
-            android:padding="6dp"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="end"/>
+        <!-- Chip: Owner who completed task -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/inputOwner"
+            style="@style/Widget.PetMinder.Chip.Base"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Owner 1" />
     </LinearLayout>
-
-    <!-- MORE BUTTON -->
-    <ImageView
-        android:id="@+id/menuIcon"
-        android:src="@android:drawable/ic_menu_more"
-        android:layout_width="28dp"
-        android:layout_height="28dp"/>
 </LinearLayout>

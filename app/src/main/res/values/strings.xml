@@ -10,6 +10,9 @@
 
     <!-- Page Headers -->
     <string name="head_profile">Profile</string>
+    <string name="head_dailyTasks">Daily Tasks</string>
+    <string name="head_calendar">Calendar</string>
+
 
     <!-- Profile Text -->
     <string name="frame_upload_image">Upload image</string>
@@ -20,6 +23,12 @@
     <string name="notif_health_updates">Health Updates</string>
     <string name="text_notes">Notes:</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+
+    <!-- Fitlers Text -->
+    <string name="title_filters">Filters</string>
+    <string name="category_pets">Pets</string>
+    <string name="category_importance">Importance</string>
+    <string name="category_recurrence">Recurrence</string>
 
 
     <!-- User Input Prompts-->

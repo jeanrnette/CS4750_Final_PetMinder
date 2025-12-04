@@ -1,64 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/calendar_minimized_screen"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:id="@+id/calendar_minimized_screen"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
     <!-- ================= TOP BAR ================= -->
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/topBar"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#4059AD">
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@color/sapphire"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
-            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CALENDAR"
-            android:textColor="#FFFFFF"
+            android:text="@string/head_calendar"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
             android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_centerInParent="true" />
+            android:textStyle="bold" />
+    </LinearLayout>
 
-        <ImageView
-            android:id="@+id/filterIcon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_filter_button"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="16dp"
-            android:layout_centerVertical="true" />
-
-    </RelativeLayout>
-
-
-    <!-- ================= SCROLL AREA ================= -->
+    <!-- ============= SCROLL AREA ============= -->
     <ScrollView
         android:id="@+id/scrollArea"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/topBar"
-        android:fillViewport="true">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:orientation="vertical"
-            android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- ===== MINIMIZED CALENDAR IMAGE (Image B) ===== -->
+            <!-- ===== CALENDAR PNG IMAGE ===== -->
             <ImageView
-                android:id="@+id/calendarMin"
+                android:id="@+id/calendarImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
                 android:src="@drawable/ic_calendar_min"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
 
-            <!-- ===== SELECTED DATE ===== -->
+            <!-- ===== SELECTED DATE HEADER ===== -->
             <TextView
                 android:id="@+id/selectedDay"
                 android:layout_width="wrap_content"
@@ -67,249 +64,142 @@
                 android:textSize="20sp"
                 android:textColor="#000000"
                 android:textStyle="bold"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp" />
 
-            <!-- ========================================================= -->
-            <!-- ======================= TASK LIST ======================= -->
-            <!-- ========================================================= -->
-
-            <!-- TASK 1 -->
+            <!-- ===== TASK LIST AREA ===== -->
             <LinearLayout
+                android:id="@+id/taskList"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="16dp"
-                android:gravity="top">
+                android:padding="16dp">
 
-                <TextView
-                    android:layout_width="60dp"
+                <!--
+                I am including the xml file directly just to see the UI
+                However this must be implemented using Recycler View
+                -->
+                <include
+                    layout="@layout/item_task"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="08:00 AM"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <RelativeLayout
-                    android:layout_width="0dp"
+                    android:layout_marginTop="8dp"/>
+                <include
+                    layout="@layout/item_task"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="12dp"
-                    android:background="#E3E3E3"
-                    android:padding="12dp"
-                    android:clipToOutline="true">
+                    android:layout_marginTop="8dp"/>
 
-                    <TextView
-                        android:text="Title"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:text="Details about task here ..."
-                        android:textColor="#444444"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:text="Owner 1"
-                        android:background="#D1D1D1"
-                        android:textSize="12sp"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"/>
-
-                    <ImageView
-                        android:layout_width="26dp"
-                        android:layout_height="26dp"
-                        android:src="@drawable/ic_more_vert"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"/>
-                </RelativeLayout>
             </LinearLayout>
 
-
-            <!-- TASK 2 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="16dp"
-                android:gravity="top">
-
-                <TextView
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:text="08:30 PM"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="12dp"
-                    android:background="#E3E3E3"
-                    android:padding="12dp"
-                    android:clipToOutline="true">
-
-                    <TextView
-                        android:text="Title"
-                        android:textStyle="bold"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:text="Details about task here ..."
-                        android:textColor="#444444"
-                        android:layout_marginTop="4dp" />
-
-                    <TextView
-                        android:text="Owner 1"
-                        android:background="#D1D1D1"
-                        android:textSize="12sp"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="8dp"/>
-
-                    <ImageView
-                        android:layout_width="26dp"
-                        android:layout_height="26dp"
-                        android:src="@drawable/ic_more_vert"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"/>
-                </RelativeLayout>
-            </LinearLayout>
-
-
-            <!-- SPACER ABOVE NAV -->
+            <!-- EXTRA SPACE ABOVE NAV BAR -->
             <View
                 android:layout_width="match_parent"
-                android:layout_height="100dp" />
+                android:layout_height="90dp" />
 
         </LinearLayout>
+
     </ScrollView>
 
+    <!-- ================= FLOATING ACTION BUTTON ================= -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:src="@android:drawable/ic_input_add"
+        app:tint="@android:color/white"
+        app:backgroundTint="@color/vibrant_coral"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- ================= FLOATING PLUS BUTTON ================= -->
-    <ImageView
-        android:id="@+id/addButton"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/ic_orange_button"
-        android:adjustViewBounds="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="100dp"
-        android:layout_alignParentBottom="true" />
-
-
-    <!-- ================= BOTTOM NAVIGATION ================= -->
-    <RelativeLayout
+    <!-- ================= BOTTOM NAV ================= -->
+    <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="#4059AD"
-        android:layout_alignParentBottom="true"
-        android:padding="8dp">
+        android:layout_width="0dp"
+        android:layout_height="95dp"
+        android:background="@color/sapphire"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- HOME -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:weightSum="4"
+            android:orientation="vertical"
             android:gravity="center"
-            android:orientation="horizontal">
-
-            <!-- HOME -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:src="@drawable/ic_home"
-                    android:tint="#FF6F61"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
-
-                <TextView
-                    android:text="Home"
-                    android:textColor="#FF6F61"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- CALENDAR -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:src="@drawable/ic_calendar"
-                    android:tint="#FFFFFF"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
-
-                <TextView
-                    android:text="Calendar"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- PETS -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:src="@drawable/ic_pets"
-                    android:tint="#FFFFFF"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
-
-                <TextView
-                    android:text="Pets"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- SETTINGS -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:src="@drawable/ic_settings"
-                    android:tint="#FFFFFF"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
-
-                <TextView
-                    android:text="Settings"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_home"
+                app:tint="@color/vibrant_coral"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="@color/vibrant_coral"/>
         </LinearLayout>
-    </RelativeLayout>
 
-</RelativeLayout>
+        <!-- CALENDAR -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:tint="@color/white"
+                android:src="@drawable/ic_calendar"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calendar"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <!-- PETS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:tint="@color/white"
+                android:src="@drawable/ic_pets"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pets"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- SETTINGS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:tint="@color/white"
+                android:src="@drawable/ic_settings"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

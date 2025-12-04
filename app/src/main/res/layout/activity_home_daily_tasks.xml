@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
     <!-- ================= TOP BAR ================= -->
     <LinearLayout
@@ -21,7 +21,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DAILY TASKS"
+            android:text="@string/head_dailyTasks"
+            android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -49,6 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="October 21"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="26sp" />
 
@@ -219,8 +221,25 @@
                 android:text="Today's Schedule:"
                 android:textStyle="bold"
                 android:textSize="20sp"
+                android:textColor="@color/black"
                 android:layout_marginTop="22dp"/>
 
+            <!--
+            I am including the xml file directly just to see the UI
+            However this must be implemented using Recycler View
+            -->
+            <include
+                layout="@layout/item_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"/>
+            <include
+                layout="@layout/item_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"/>
+
+            <!-- This is from original XML by Michelle -->
             <!-- ====== TASK ROW 1 ====== -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -259,125 +278,6 @@
                         android:textSize="14sp"/>
                 </LinearLayout>
             </LinearLayout>
-
-            <!-- ====== TASK ROW 2 ====== -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="08:30 PM"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:background="#E0E0E0"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Title"
-                        android:textStyle="bold"
-                        android:textSize="16sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Details about task here ..."
-                        android:textSize="14sp"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- ====== TASK ROW 3 ====== -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="08:00 PM"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:background="#E0E0E0"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Title"
-                        android:textStyle="bold"
-                        android:textSize="16sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Details about task here ..."
-                        android:textSize="14sp"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- ====== TASK ROW 4 ====== -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="08:30 PM"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:background="#E0E0E0"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Title"
-                        android:textStyle="bold"
-                        android:textSize="16sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Details about task here ..."
-                        android:textSize="14sp"/>
-                </LinearLayout>
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
@@ -389,8 +289,8 @@
         android:layout_margin="20dp"
         android:src="@android:drawable/ic_input_add"
         app:tint="@android:color/white"
-        app:backgroundTint="#D9D9D9"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:backgroundTint="@color/vibrant_coral"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- ================= BOTTOM NAV ================= -->
@@ -416,12 +316,12 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/ic_home"
-                android:tint="#FF8A65"/>
+                app:tint="@color/vibrant_coral"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textColor="#FF8A65"/>
+                android:textColor="@color/vibrant_coral"/>
         </LinearLayout>
 
         <!-- CALENDAR -->
@@ -434,12 +334,13 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                app:tint="@color/white"
                 android:src="@drawable/ic_calendar"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Calendar"
-                android:textColor="@android:color/white"/>
+                android:textColor="@color/white"/>
         </LinearLayout>
 
         <!-- PETS -->
@@ -452,6 +353,7 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                app:tint="@color/white"
                 android:src="@drawable/ic_pets"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -470,6 +372,7 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                app:tint="@color/white"
                 android:src="@drawable/ic_settings"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -480,4 +383,3 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

@@ -1,86 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/calendar_screen"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:id="@+id/calendar_screen"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="@color/white">
 
-    <!-- ============= TOP BLUE BAR ============= -->
-    <RelativeLayout
+    <!-- ================= TOP BAR ================= -->
+    <LinearLayout
         android:id="@+id/topBar"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#4059AD">
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@color/sapphire"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
-            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CALENDAR"
-            android:textColor="#FFFFFF"
+            android:text="@string/head_calendar"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
             android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_centerInParent="true" />
-
-        <ImageView
-            android:id="@+id/filterIcon"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_filter_list"
-            android:tint="#FFFFFF"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="16dp" />
-
-    </RelativeLayout>
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <!-- ============= SCROLL AREA ============= -->
     <ScrollView
         android:id="@+id/scrollArea"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/topBar"
-        android:fillViewport="true">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <!-- ===== MONTH HEADER ===== -->
-            <LinearLayout
-                android:id="@+id/monthHeader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:id="@+id/prevMonth"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_arrow_left"
-                    android:tint="#000000" />
-
-                <TextView
-                    android:id="@+id/monthTitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="NOVEMBER   2025"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/nextMonth"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_arrow_right"
-                    android:tint="#000000" />
-            </LinearLayout>
 
             <!-- ===== CALENDAR PNG IMAGE ===== -->
             <ImageView
@@ -112,80 +75,20 @@
                 android:layout_height="wrap_content"
                 android:padding="16dp">
 
-                <!-- TASK ITEM 1 -->
-                <LinearLayout
+                <!--
+                I am including the xml file directly just to see the UI
+                However this must be implemented using Recycler View
+                -->
+                <include
+                    layout="@layout/item_task"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
-
-                    <TextView
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:text="08:00 AM"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:background="#ECECEC"
-                        android:padding="12dp"
-                        android:layout_marginLeft="10dp"
-                        android:elevation="2dp"
-                        android:backgroundTint="#FFFFFF"
-                        android:clipToOutline="true">
-
-                        <TextView
-                            android:text="Title"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:text="Details about task here ..."
-                            android:textColor="#444444" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <!-- TASK ITEM 2 -->
-                <LinearLayout
+                    android:layout_marginTop="8dp"/>
+                <include
+                    layout="@layout/item_task"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
-
-                    <TextView
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:text="08:30 PM"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:background="#ECECEC"
-                        android:padding="12dp"
-                        android:layout_marginLeft="10dp">
-
-                        <TextView
-                            android:text="Title"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:text="Details about task here ..."
-                            android:textColor="#444444" />
-                    </LinearLayout>
-
-                </LinearLayout>
+                    android:layout_marginTop="8dp"/>
 
             </LinearLayout>
 
@@ -198,116 +101,105 @@
 
     </ScrollView>
 
-    <!-- ============= FLOATING ACTION BUTTON ============= -->
-    <ImageView
-        android:id="@+id/addButton"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/ic_add"
-        android:tint="#FF6F61"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="100dp"
-        android:layout_alignParentBottom="true" />
+    <!-- ================= FLOATING ACTION BUTTON ================= -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:src="@android:drawable/ic_input_add"
+        app:tint="@android:color/white"
+        app:backgroundTint="@color/vibrant_coral"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- ============= BOTTOM NAVIGATION BAR ============= -->
-    <RelativeLayout
+    <!-- ================= BOTTOM NAV ================= -->
+    <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        android:background="#4059AD"
-        android:padding="8dp">
+        android:layout_width="0dp"
+        android:layout_height="95dp"
+        android:background="@color/sapphire"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- HOME -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:weightSum="4"
+            android:orientation="vertical"
             android:gravity="center"
-            android:orientation="horizontal">
-
-            <!-- HOME -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:src="@drawable/ic_home"
-                    android:tint="#FF6F61"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
-
-                <TextView
-                    android:text="Home"
-                    android:textColor="#FF6F61"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- CALENDAR -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:src="@drawable/ic_calendar"
-                    android:tint="#FFFFFF"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
-
-                <TextView
-                    android:text="Calendar"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- PETS -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:src="@drawable/ic_pets"
-                    android:tint="#FFFFFF"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
-
-                <TextView
-                    android:text="Pets"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <!-- SETTINGS -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:src="@drawable/ic_settings"
-                    android:tint="#FFFFFF"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
-
-                <TextView
-                    android:text="Settings"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_home"
+                app:tint="@color/vibrant_coral"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="@color/vibrant_coral"/>
         </LinearLayout>
 
-    </RelativeLayout>
+        <!-- CALENDAR -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:tint="@color/white"
+                android:src="@drawable/ic_calendar"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calendar"
+                android:textColor="@color/white"/>
+        </LinearLayout>
 
-</RelativeLayout>
+        <!-- PETS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:tint="@color/white"
+                android:src="@drawable/ic_pets"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pets"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- SETTINGS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:tint="@color/white"
+                android:src="@drawable/ic_settings"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

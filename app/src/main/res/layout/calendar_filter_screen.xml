@@ -1,42 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/calendar_filter_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/white">
+
 
     <!-- ================= TOP BAR ================= -->
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/topBar"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#4059AD">
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CALENDAR"
-            android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_centerInParent="true" />
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@color/sapphire"
+        android:padding="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
-            android:id="@+id/filterIcon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_filter_button"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="16dp"
-            android:layout_centerVertical="true" />
-    </RelativeLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_filter"
+            android:alpha="0.0"/>
 
-    <!-- ================= SCROLL AREA ================= -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/head_calendar"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Button: Filter -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_filter"/>
+    </LinearLayout>
+
+    <!-- ================= SCROLLABLE CONTENT ================= -->
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/topBar">
+        android:id="@+id/scrollArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:orientation="vertical"
@@ -47,13 +65,17 @@
             <!-- FILTER TITLE -->
             <TextView
                 android:text="FILTERS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:layout_marginBottom="16dp" />
 
             <!-- ======= PETS SECTION ======= -->
             <TextView
-                android:text="Pets"
+                android:text="@string/category_pets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="18sp" />
 
@@ -153,7 +175,9 @@
 
             <!-- ======= IMPORTANCE SECTION ======= -->
             <TextView
-                android:text="Importance"
+                android:text="@string/category_importance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="18sp" />
 
@@ -194,6 +218,8 @@
                 <TextView
                     android:text="Vet Visit, Medications, Grooming appointment, Health emergencies"
                     android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:textColor="#666666"
                     android:layout_marginLeft="32dp"
                     android:layout_marginTop="4dp" />
@@ -235,6 +261,8 @@
 
                 <TextView
                     android:text="Bath, Replace litter, Buy food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:textSize="14sp"
                     android:textColor="#666666"
                     android:layout_marginLeft="32dp"
@@ -279,6 +307,8 @@
                     android:text="Feedings, Walks, Playtime, Brushing, Water refills"
                     android:textSize="14sp"
                     android:textColor="#666666"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="32dp"
                     android:layout_marginTop="4dp" />
             </LinearLayout>
@@ -293,7 +323,9 @@
 
             <!-- ======= RECURRENCE SECTION ======= -->
             <TextView
-                android:text="Recurrence"
+                android:text="@string/category_recurrence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="18sp" />
 
@@ -335,6 +367,8 @@
                     android:text="Last-minute vet schedule, playdate, etc."
                     android:textSize="14sp"
                     android:textColor="#666666"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="32dp"
                     android:layout_marginTop="4dp" />
             </LinearLayout>
@@ -376,6 +410,8 @@
                 <TextView
                     android:text="Daily feedings, etc."
                     android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:textColor="#666666"
                     android:layout_marginLeft="32dp"
                     android:layout_marginTop="4dp" />
@@ -389,102 +425,93 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- ================= BOTTOM NAV BAR ================= -->
-    <RelativeLayout
+    <!-- ================= BOTTOM NAV ================= -->
+    <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="#4059AD"
-        android:layout_alignParentBottom="true"
-        android:padding="8dp">
+        android:layout_width="0dp"
+        android:layout_height="95dp"
+        android:background="@color/sapphire"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- HOME -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:weightSum="4"
+            android:orientation="vertical"
             android:gravity="center"
-            android:orientation="horizontal">
-
-            <!-- NAV ITEMS EXACTLY MATCHING IMAGE 1... -->
-            <!-- (same as previous screen for consistency) -->
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:src="@drawable/ic_home"
-                    android:tint="#FF6F61"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
-
-                <TextView
-                    android:text="Home"
-                    android:textColor="#FF6F61"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:src="@drawable/ic_calendar"
-                    android:tint="#FFFFFF"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
-
-                <TextView
-                    android:text="Calendar"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:src="@drawable/ic_pets"
-                    android:tint="#FFFFFF"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
-
-                <TextView
-                    android:text="Pets"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:src="@drawable/ic_settings"
-                    android:tint="#FFFFFF"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp" />
-
-                <TextView
-                    android:text="Settings"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_home"
+                app:tint="@color/white"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="@color/white"/>
         </LinearLayout>
-    </RelativeLayout>
 
-</RelativeLayout>
+        <!-- CALENDAR -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:tint="@color/vibrant_coral"
+                android:src="@drawable/ic_calendar"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calendar"
+                android:textColor="@color/vibrant_coral"/>
+        </LinearLayout>
+
+        <!-- PETS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:tint="@color/white"
+                android:src="@drawable/ic_pets"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pets"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- SETTINGS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:tint="@color/white"
+                android:src="@drawable/ic_settings"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

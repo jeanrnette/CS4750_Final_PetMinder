@@ -1,27 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_notask">
+    android:background="@color/white">
 
-    <!-- Top Bar -->
+
+    <!-- ================= TOP BAR ================= -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#3F51B5"
-        android:gravity="center">
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@color/sapphire"
+        android:padding="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_filter"
+            android:alpha="0.0"/>
 
         <TextView
-            android:text="CALENDAR"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/head_calendar"
+            android:textAllCaps="true"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="18sp" />
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Button: Filter -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_filter"/>
     </LinearLayout>
 
     <!-- Calendar View -->
     <CalendarView
         android:id="@+id/calendar_view"
-        android:layout_below="@id/top_bar"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp" />
@@ -29,6 +55,7 @@
     <!-- Placeholder for events -->
     <TextView
         android:id="@+id/tv_selected_date"
+        app:layout_constraintTop_toBottomOf="@id/calendar_view"
         android:layout_below="@id/calendar_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,5 +65,90 @@
         android:textSize="16sp"
         android:textColor="@android:color/black" />
 
-</RelativeLayout>
-    droidx.constraintlayout.widget.ConstraintLayout>
+    <!-- ================= BOTTOM NAV ================= -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="95dp"
+        android:background="@color/sapphire"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- HOME -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_home"
+                android:tint="#FF8A65"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="#FF8A65"/>
+        </LinearLayout>
+
+        <!-- CALENDAR -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_calendar"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calendar"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- PETS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_pets"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pets"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- SETTINGS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_settings"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
