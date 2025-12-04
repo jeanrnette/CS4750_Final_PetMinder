@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- ========================================================= -->
-    <!--                   TOP BLUE HEADER (CREATE TASK)            -->
-    <!-- ========================================================= -->
+    <!-- ================= TOP BLUE HEADER ================= -->
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="0dp"
@@ -23,21 +21,20 @@
         <TextView
             android:text="CREATE TASK"
             android:textSize="22sp"
-            android:textColor="@android:color/white"
             android:textStyle="bold"
+            android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
 
-    <!-- ========================================================= -->
-    <!--                    CANCEL / SAVE ROW                      -->
-    <!-- ========================================================= -->
+    <!-- ================= CANCEL / SAVE ROW ================= -->
     <LinearLayout
         android:id="@+id/actionRow"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:paddingTop="16dp"
         android:paddingBottom="4dp"
         android:orientation="horizontal"
@@ -56,7 +53,6 @@
             android:textColor="@android:color/black"
             android:backgroundTint="#E6E6E6"/>
 
-        <!-- EMPTY SPACER -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -74,9 +70,7 @@
     </LinearLayout>
 
 
-    <!-- ========================================================= -->
-    <!--                       MAIN SCROLL AREA                     -->
-    <!-- ========================================================= -->
+    <!-- ================= MAIN SCROLL AREA ================= -->
     <ScrollView
         android:id="@+id/scrollArea"
         android:layout_width="0dp"
@@ -88,12 +82,12 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <!-- NAME -->
+            <!-- TASK NAME -->
             <TextView
                 android:text="Name"
                 android:textStyle="bold"
@@ -104,7 +98,8 @@
                 android:id="@+id/editName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingHorizontal="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:hint="Enter Title..."
                 android:background="@drawable/input_field_bg"/>
 
@@ -114,78 +109,79 @@
                 android:text="Description"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:layout_marginTop="20dp"
-                android:textColor="#444444"/>
+                android:textColor="#444444"
+                android:layout_marginTop="20dp"/>
 
             <EditText
                 android:id="@+id/editDescription"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingHorizontal="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:hint="Enter Description..."
                 android:background="@drawable/input_field_bg"/>
 
 
             <!-- DATE & TIME -->
             <TextView
-                android:text="Date & Time"
+                android:text="Date &amp; Time"
+
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:layout_marginTop="20dp"
-                android:textColor="#444444"/>
+                android:textColor="#444444"
+                android:layout_marginTop="20dp"/>
 
             <EditText
                 android:id="@+id/editDate"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingHorizontal="12dp"
-                android:hint="Complete by Month, ##:##AM"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:hint="Complete by Month, 12:00 AM"
                 android:background="@drawable/input_field_bg"/>
 
 
             <!-- REPEAT SWITCH -->
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="24dp">
 
                 <TextView
                     android:text="Repeat this task?"
                     android:textStyle="bold"
                     android:textColor="#444444"
-                    android:textSize="16sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="16sp"/>
 
                 <Switch
                     android:id="@+id/switchRepeat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:layout_gravity="end"/>
             </LinearLayout>
 
 
-            <!-- REPEATS TITLE -->
+            <!-- REPEAT OPTIONS TITLE -->
             <TextView
                 android:text="Repeats:"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:layout_marginTop="12dp"
-                android:textColor="#444444"/>
+                android:textColor="#444444"
+                android:layout_marginTop="12dp"/>
 
 
-            <!-- RADIO BUTTON OPTIONS -->
+            <!-- RADIO OPTIONS -->
             <RadioGroup
                 android:id="@+id/repeatOptions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/input_field_bg"
-                android:padding="12dp">
+                android:padding="12dp"
+                android:layout_marginTop="10dp">
 
                 <RadioButton
                     android:id="@+id/radioDaily"
@@ -211,15 +207,16 @@
                 android:text="Completed By:"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:layout_marginTop="24dp"
-                android:textColor="#444444"/>
+                android:textColor="#444444"
+                android:layout_marginTop="24dp"/>
 
             <Spinner
                 android:id="@+id/spinnerCompletedBy"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/input_field_bg"
-                android:paddingHorizontal="12dp"/>
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@drawable/input_field_bg"/>
 
 
             <!-- IMPORTANCE -->
@@ -227,29 +224,29 @@
                 android:text="Importance"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:layout_marginTop="24dp"
-                android:textColor="#444444"/>
+                android:textColor="#444444"
+                android:layout_marginTop="24dp"/>
 
             <Spinner
                 android:id="@+id/spinnerImportance"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingHorizontal="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:background="@drawable/input_field_bg"/>
+
         </LinearLayout>
     </ScrollView>
 
 
-    <!-- ========================================================= -->
-    <!--                       BOTTOM NAVIGATION                    -->
-    <!-- ========================================================= -->
+    <!-- ================= BOTTOM NAV ================= -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
         android:layout_height="95dp"
         android:background="@color/sapphire"
-        android:orientation="horizontal"
         android:weightSum="4"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -259,13 +256,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_weight="1">
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
                 android:src="@drawable/ic_home"
-                android:tint="#FF8A65"/>
+                android:tint="#FF8A65"
+                android:layout_width="32dp"
+                android:layout_height="32dp"/>
             <TextView android:text="Home" android:textColor="#FF8A65"/>
         </LinearLayout>
 
@@ -274,13 +271,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_weight="1">
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
                 android:src="@drawable/ic_calendar"
-                android:tint="@android:color/white"/>
+                android:tint="@android:color/white"
+                android:layout_width="32dp"
+                android:layout_height="32dp"/>
             <TextView android:text="Calendar" android:textColor="@android:color/white"/>
         </LinearLayout>
 
@@ -289,13 +286,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_weight="1">
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
                 android:src="@drawable/ic_pets"
-                android:tint="@android:color/white"/>
+                android:tint="@android:color/white"
+                android:layout_width="32dp"
+                android:layout_height="32dp"/>
             <TextView android:text="Pets" android:textColor="@android:color/white"/>
         </LinearLayout>
 
@@ -304,13 +301,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_weight="1">
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
                 android:src="@drawable/ic_settings"
-                android:tint="@android:color/white"/>
+                android:tint="@android:color/white"
+                android:layout_width="32dp"
+                android:layout_height="32dp"/>
             <TextView android:text="Settings" android:textColor="@android:color/white"/>
         </LinearLayout>
 

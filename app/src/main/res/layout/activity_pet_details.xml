@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- ================= TOP HEADER ================= -->
+    <!-- ================= TOP BAR ================= -->
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="0dp"
@@ -14,13 +14,13 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:background="#E0E0E0"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Back Arrow -->
+        <!-- Back -->
         <ImageView
             android:id="@+id/btnBack"
             android:layout_width="28dp"
@@ -33,13 +33,22 @@
             android:id="@+id/titleText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="PHINEAS"
+            android:text="PET DETAILS"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:layout_marginStart="16dp"
             android:gravity="center"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
+
+        <!-- EDIT BUTTON -->
+        <ImageView
+            android:id="@+id/btnEdit"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_edit"
+            android:tint="@android:color/black"
+            android:layout_marginEnd="8dp"/>
     </LinearLayout>
 
 
@@ -49,14 +58,12 @@
         android:layout_width="0dp"
         android:layout_height="260dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/img_finny"
-        android:background="@android:color/transparent"
         android:adjustViewBounds="true"
-        android:layout_margin="16dp"
         android:clipToOutline="true"
+        android:layout_margin="16dp"
         app:layout_constraintTop_toBottomOf="@id/topBar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
     <!-- ================= INFO CARD ================= -->
@@ -68,8 +75,8 @@
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
-        app:strokeWidth="1dp"
         app:strokeColor="#DDDDDD"
+        app:strokeWidth="1dp"
         app:layout_constraintTop_toBottomOf="@id/petImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -85,12 +92,13 @@
                 android:id="@+id/petName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phineas"
+                android:text="Pet Name"
                 android:textSize="22sp"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
 
-            <!-- Birthday Label -->
+
+            <!-- Birthday -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,18 +108,17 @@
                 android:layout_marginTop="12dp"
                 android:textColor="@android:color/black" />
 
-            <!-- Birthday Chip -->
             <TextView
                 android:id="@+id/birthdayChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="August 17, 2009"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
                 android:background="@drawable/chip_background"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="8dp"
-                android:layout_marginTop="4dp" />
+                android:textColor="@android:color/black"
+                android:layout_marginTop="6dp"/>
+
 
             <!-- Attributes -->
             <TextView
@@ -119,73 +126,50 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Attributes:"
-                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
-                android:layout_marginTop="16dp" />
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"/>
 
-            <!-- Attribute Chips Row 1 -->
+            <!-- Row 1 -->
             <LinearLayout
+                android:id="@+id/attributesRow1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"/>
 
-                <TextView
-                    style="@style/PetTagStyle"
-                    android:text="🐾 Dog" />
-
-                <TextView
-                    style="@style/PetTagStyle"
-                    android:text="🐾 3lbs" />
-
-                <TextView
-                    style="@style/PetTagStyle"
-                    android:text="🐾 Vaccinated" />
-            </LinearLayout>
-
-            <!-- Attribute Chips Row 2 -->
+            <!-- Row 2 -->
             <LinearLayout
+                android:id="@+id/attributesRow2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"/>
 
-                <TextView
-                    style="@style/PetTagStyle"
-                    android:text="🐾 Female" />
-
-                <TextView
-                    style="@style/PetTagStyle"
-                    android:text="🐾 German Shepherd" />
-            </LinearLayout>
 
             <!-- Notes -->
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="Notes:"
-                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
-                android:layout_marginTop="20dp" />
+                android:textSize="16sp"
+                android:layout_marginTop="20dp"/>
 
             <EditText
                 android:id="@+id/petNotes"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:background="@drawable/edittext_background"
-                android:gravity="top"
                 android:padding="12dp"
+                android:gravity="top"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
-                android:hint="Write notes about your pet..." />
-
+                android:hint="Write notes here..."/>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
 
-    <!-- ================= BOTTOM NAVIGATION ================= -->
+    <!-- ================= BOTTOM NAV ================= -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
@@ -202,15 +186,16 @@
             android:id="@+id/navHome"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:gravity="center">
+
             <ImageView
                 android:src="@drawable/ic_home"
                 android:tint="@android:color/darker_gray"
                 android:layout_width="32dp"
-                android:layout_height="32dp" />
-            <TextView android:text="Home" android:textColor="@android:color/darker_gray" />
+                android:layout_height="32dp"/>
+            <TextView android:text="Home" android:textColor="@android:color/darker_gray"/>
         </LinearLayout>
 
         <!-- CALENDAR -->
@@ -218,33 +203,33 @@
             android:id="@+id/navCalendar"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:gravity="center">
+
             <ImageView
                 android:src="@drawable/ic_calendar"
                 android:tint="@android:color/darker_gray"
                 android:layout_width="32dp"
-                android:layout_height="32dp" />
-            <TextView android:text="Calendar" android:textColor="@android:color/darker_gray" />
+                android:layout_height="32dp"/>
+            <TextView android:text="Calendar" android:textColor="@android:color/darker_gray"/>
         </LinearLayout>
 
-        <!-- PETS (SELECTED) -->
+        <!-- PETS (selected) -->
         <LinearLayout
             android:id="@+id/navPets"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:gravity="center">
+
             <ImageView
                 android:src="@drawable/ic_pets"
                 android:tint="#FF8A65"
                 android:layout_width="32dp"
-                android:layout_height="32dp" />
-            <TextView
-                android:text="Pets"
-                android:textColor="#FF8A65" />
+                android:layout_height="32dp"/>
+            <TextView android:text="Pets" android:textColor="#FF8A65"/>
         </LinearLayout>
 
         <!-- SETTINGS -->
@@ -252,17 +237,17 @@
             android:id="@+id/navSettings"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:gravity="center">
+
             <ImageView
                 android:src="@drawable/ic_settings"
                 android:tint="@android:color/darker_gray"
                 android:layout_width="32dp"
-                android:layout_height="32dp" />
-            <TextView android:text="Settings" android:textColor="@android:color/darker_gray" />
+                android:layout_height="32dp"/>
+            <TextView android:text="Settings" android:textColor="@android:color/darker_gray"/>
         </LinearLayout>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -77,6 +77,10 @@
         <activity android:name=".ui.settings.SettingsActivity" />
         <activity android:name=".ui.pets.AddPetActivity" />
 
+        <activity android:name=".ui.pets.AddPetActivity" />
+        <activity android:name=".ui.pets.PetListActivity" />
+        <activity android:name=".ui.pets.PetDetailsActivity" />
+
         <!-- ===================================================== -->
         <!--                     MAIN ACTIVITY                     -->
         <!-- ===================================================== -->

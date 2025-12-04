@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-
     <!-- ================= TOP HEADER ================= -->
     <LinearLayout
         android:id="@+id/topBar"
@@ -26,23 +25,23 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:src="@drawable/ic_arrow_left"
-            android:tint="@android:color/black"/>
+            android:tint="@android:color/black" />
 
         <TextView
             android:id="@+id/titleText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="ADD PET"
+            android:text="EDIT PET"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:layout_marginStart="16dp"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 
-    <!-- ================= PET IMAGE (UPLOAD) ================= -->
+    <!-- ================= PET IMAGE ================= -->
     <FrameLayout
         android:id="@+id/petImageFrame"
         android:layout_width="0dp"
@@ -54,15 +53,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Preview -->
         <ImageView
             android:id="@+id/petImagePreview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:visibility="gone"/>
+            android:scaleType="centerCrop"/>
 
-        <!-- Upload Icon -->
         <ImageView
             android:id="@+id/petImagePicker"
             android:layout_width="48dp"
@@ -71,7 +67,6 @@
             android:src="@drawable/ic_upload"
             android:tint="@android:color/white"/>
     </FrameLayout>
-
 
 
     <!-- ================= INFO CARD ================= -->
@@ -95,128 +90,70 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <!-- Pet Name -->
-            <TextView android:text="Pet Name"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"/>
-
+            <TextView android:text="Pet Name" android:textStyle="bold" android:textSize="18sp"/>
             <EditText
                 android:id="@+id/inputPetName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/edittext_background"
                 android:padding="12dp"
-                android:layout_marginTop="8dp"
-                android:textColor="@android:color/black"
-                android:hint="Enter pet name"/>
-
+                android:layout_marginTop="8dp"/>
 
             <!-- Birthday -->
-            <TextView
-                android:text="Birthday"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
-                android:layout_marginTop="18dp"/>
-
+            <TextView android:text="Birthday" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="18dp"/>
             <EditText
                 android:id="@+id/inputBirthday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
                 android:background="@drawable/chip_background"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="8dp"
-                android:hint="August 17, 2009"
-                android:textColor="@android:color/black"/>
-
-
+                android:layout_marginTop="6dp"/>
 
             <!-- Attributes -->
-            <TextView
-                android:text="Attributes:"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
-                android:layout_marginTop="20dp"/>
+            <TextView android:text="Attributes:" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="20dp"/>
 
+            <!-- Row 1 -->
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_marginTop="8dp">
 
-            <!-- Dog, lbs, Vaccinated -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-
-                <EditText
-                    android:id="@+id/inputType"
-                    style="@style/PetTagStyle"
-                    android:hint="Dog"/>
-
-                <EditText
-                    android:id="@+id/inputWeight"
-                    style="@style/PetTagStyle"
-                    android:hint="3 lbs"
-                    android:layout_marginStart="6dp"/>
-
-                <EditText
-                    android:id="@+id/inputVaccine"
-                    style="@style/PetTagStyle"
-                    android:hint="Vaccinated"
-                    android:layout_marginStart="6dp"/>
+                <EditText android:id="@+id/inputType" style="@style/PetTagStyle" android:hint="Type"/>
+                <EditText android:id="@+id/inputWeight" style="@style/PetTagStyle"
+                    android:layout_marginStart="6dp" android:hint="Weight"/>
+                <EditText android:id="@+id/inputVaccine" style="@style/PetTagStyle"
+                    android:layout_marginStart="6dp" android:hint="Vaccine"/>
             </LinearLayout>
 
+            <!-- Row 2 -->
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_marginTop="8dp">
 
-            <!-- Female, Breed -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-
-                <EditText
-                    android:id="@+id/inputSex"
-                    style="@style/PetTagStyle"
-                    android:hint="Female"/>
-
-                <EditText
-                    android:id="@+id/inputBreed"
-                    style="@style/PetTagStyle"
-                    android:hint="German Shepherd"
-                    android:layout_marginStart="6dp"/>
+                <EditText android:id="@+id/inputSex" style="@style/PetTagStyle" android:hint="Sex"/>
+                <EditText android:id="@+id/inputBreed" style="@style/PetTagStyle"
+                    android:layout_marginStart="6dp" android:hint="Breed"/>
             </LinearLayout>
-
 
             <!-- Notes -->
-            <TextView
-                android:text="Notes:"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
-                android:layout_marginTop="20dp"/>
-
+            <TextView android:text="Notes:" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="20dp"/>
             <EditText
                 android:id="@+id/inputNotes"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:background="@drawable/edittext_background"
-                android:padding="12dp"
                 android:gravity="top"
-                android:hint="Write notes about your pet..."
-                android:textColor="@android:color/black"/>
+                android:padding="12dp"
+                android:layout_marginTop="6dp"/>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
 
-
     <!-- SAVE BUTTON -->
     <Button
-        android:id="@+id/btnSavePet"
+        android:id="@+id/btnSaveChanges"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:text="SAVE PET"
+        android:text="SAVE CHANGES"
         android:textStyle="bold"
         android:textColor="@android:color/white"
         android:background="@color/sapphire"
