@@ -15,8 +15,9 @@ PetMinder is an Android app that helps you keep track of all your pet care needs
 
 ---
 
-## 📸 Screenshots
-> Replace with your own images later.
+## 📸 Demo
+> [![Watch the video](https://imgur.com/a/sFdrOK3)]([https://youtu.be/VIDEO_ID](https://youtu.be/_SI5WBgXh5o))
+
 
 ---
 
